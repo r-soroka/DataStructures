@@ -7,16 +7,16 @@ public abstract class AbstractList<Type> implements MagpieList<Type> {
 
     //start Method(s)
     @Override
-    public int size() {return size;}
+    public int size() { return size; }
 
     @Override
     public abstract Type get(int index);
 
     @Override
-    public boolean isEmpty() {return size == 0;}
+    public boolean isEmpty() { return size == 0; }
 
     @Override
-    public void clear() {size=0;}
+    public abstract void clear();
 
     @Override
     public String toString() {
