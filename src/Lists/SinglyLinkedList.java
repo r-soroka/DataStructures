@@ -51,7 +51,7 @@ public class SinglyLinkedList<Type> extends AbstractList<Type> {
 
     //start Add Method(s)
     public void addFirst(Type data) {
-        if (this.size >= this.maxSize) {
+        if (this.size != -1 && this.size >= this.maxSize) {
             throw new IllegalArgumentException("max size exceeded");
         }
         Node<Type> node = new Node<>(data);
@@ -61,7 +61,7 @@ public class SinglyLinkedList<Type> extends AbstractList<Type> {
         this.size++;
     }
     public void addLast(Type data) {
-        if (this.size >= this.maxSize) {
+        if (this.size != -1 && this.size >= this.maxSize) {
             throw new IllegalArgumentException("max size exceeded");
         }
         Node<Type> node = new Node<>(data);
@@ -76,7 +76,7 @@ public class SinglyLinkedList<Type> extends AbstractList<Type> {
         if (index < 0 || index > this.size) {
             throw new IllegalArgumentException("index out of range");
         }
-        if (this.size >= this.maxSize) {
+        if (this.size != -1 && this.size >= this.maxSize) {
             throw new IllegalArgumentException("max size exceeded");
         }
         if (index == 0) { addFirst(data); }
@@ -163,7 +163,6 @@ public class SinglyLinkedList<Type> extends AbstractList<Type> {
     //end Remove Method(s)
 
     //start Getter(s) & Setter(s)
-    public int size() { return this.size; }
     public Type get(int index) {
         if (index < 0 || index >= size){
             throw new IllegalArgumentException("index out of range");
@@ -206,7 +205,7 @@ public class SinglyLinkedList<Type> extends AbstractList<Type> {
         }
         return -1;
     }
-    public boolean isEmpty() { return this.size == 0; }
+    @Override
     public void clear() {
         this.head = null;
         this.tail = null;
